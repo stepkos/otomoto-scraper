@@ -71,8 +71,9 @@ public class SpecOffer {
         PRICE_CURRENCY = price.get(1).text();
 
         LOCATION = offerContent.getElementsByTag("h4").first().text();
+    }
 
-
+    public void printAll() {
         System.out.println(TITLE);
         System.out.println(SUBTITLE);
         System.out.println(YEAR);
