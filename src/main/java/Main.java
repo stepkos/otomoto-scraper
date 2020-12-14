@@ -9,8 +9,8 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
 
-        String urlBase = "https://www.pracuj.pl";
-        String url = urlBase.concat("/praca/programista;kw?rd=30");
+        String urlBase = "https://www.otomoto.pl";
+        String url = urlBase.concat("/osobowe/bmw/m4/");
         Document document;
 
         try {
@@ -22,12 +22,16 @@ public class Main {
         }
 
 
-        Elements elements = document.getElementsByClass("results__list-container-item");
+        Elements elements = document.getElementsByClass("offer-item");
+//        System.out.println(elements);
 
         ArrayList<SpecOffer> offers = new ArrayList<>();
         for (Element element : elements) {
             offers.add(new SpecOffer(element));
         }
+
+//        System.out.println(offers.get(0).LINK);
+//        System.out.println(offers.size());
 
 
     }
