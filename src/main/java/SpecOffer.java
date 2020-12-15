@@ -1,12 +1,8 @@
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Attribute;
-import org.jsoup.nodes.Attributes;
-import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.io.IOException;
-import java.util.function.Function;
+import java.util.HashMap;
+
 
 /**
 * It is a class to collect data about specific car offer from otomoto.pl page.
@@ -58,8 +54,7 @@ public class SpecOffer {
             FUEL_TYPE = parameters.get(2).select("span").text();
             MILEAGE = "1 km";
         }
-        else
-        {
+        else {
             YEAR = parameters.get(0).select("span").text();
             MILEAGE = parameters.get(1).select("span").text();
             ENGINE_CAPACITY = parameters.get(2).select("span").text();
@@ -73,17 +68,41 @@ public class SpecOffer {
         LOCATION = offerContent.getElementsByTag("h4").first().text();
     }
 
+    public String[] getInArray() {
+        return new String[] {
+                LINK,
+                TITLE,
+                SUBTITLE,
+                YEAR,
+                MILEAGE,
+                ENGINE_CAPACITY,
+                PRICE,
+                FUEL_TYPE,
+                PRICE_CURRENCY,
+                LOCATION
+        };
+    }
+
+    public HashMap<String, String> getInHashMap() {
+        HashMap<String, String> map = new HashMap<>();
+        map.put("link", LINK);
+        map.put("title", TITLE);
+        map.put("subtitle", SUBTITLE);
+        map.put("year", YEAR);
+        map.put("mileage", MILEAGE);
+        map.put("engine_capacity", ENGINE_CAPACITY);
+        map.put("price", PRICE);
+        map.put("fuel_type", FUEL_TYPE);
+        map.put("price_currency", PRICE_CURRENCY);
+        map.put("location", LOCATION);
+        return map;
+    }
+
     public void printAll() {
-        System.out.println(TITLE);
-        System.out.println(SUBTITLE);
-        System.out.println(YEAR);
-        System.out.println(MILEAGE);
-        System.out.println(ENGINE_CAPACITY);
-        System.out.println(FUEL_TYPE);
-        System.out.println(PRICE);
-        System.out.println(PRICE_CURRENCY);
-        System.out.println(LOCATION);
-        System.out.println("------------");
+        for (String attribute : getInArray()) {
+            System.out.println(attribute);
+        }
+        System.out.println("--------------");
     }
 
 }
