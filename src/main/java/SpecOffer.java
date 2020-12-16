@@ -102,7 +102,25 @@ public class SpecOffer {
         for (String attribute : getInArray()) {
             System.out.println(attribute);
         }
-        System.out.println("--------------");
+        System.out.println("---------------");
     }
+
+    @Override
+    public String toString() {
+        return "SpecOffer {" +
+                "\n\tLINK='" + LINK + '\'' +
+                ", \n\tTITLE='" + TITLE + '\'' +
+                ", \n\tSUBTITLE='" + SUBTITLE + '\'' +
+                ", \n\tYEAR='" + YEAR + '\'' +
+                ", \n\tMILEAGE='" + MILEAGE + '\'' +
+                ", \n\tENGINE_CAPACITY='" + ENGINE_CAPACITY + '\'' +
+                ", \n\tFUEL_TYPE='" + FUEL_TYPE + '\'' +
+                ", \n\tPRICE='" + PRICE + '\'' +
+                ", \n\tPRICE_CURRENCY='" + PRICE_CURRENCY + '\'' +
+                ", \n\tLOCATION='" + LOCATION + '\'' +
+                "\n}\n";
+    }
+
+
 
 }
