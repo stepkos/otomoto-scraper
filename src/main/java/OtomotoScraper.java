@@ -40,8 +40,7 @@ public class OtomotoScraper {
 
         Font headerFont = wb.createFont();
         headerFont.setBold(true);
-        headerFont.setFontHeight((short) 14);
-        headerFont.setColor(IndexedColors.RED.getIndex());
+        headerFont.setFontHeightInPoints((short) 12);
 
         CellStyle headerCellStyle = wb.createCellStyle();
         headerCellStyle.setFont(headerFont);
@@ -70,9 +69,9 @@ public class OtomotoScraper {
         }
 
         // Resize all columns to fit the content size
-//        for(int i = 0; i < 10; i++) {
-//            sh.autoSizeColumn(i);
-//        }
+        for(int i = 0; i < 10; i++) {
+            sh.autoSizeColumn(i);
+        }
 
         // Write the output to a file
         try {
