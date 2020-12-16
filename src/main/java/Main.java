@@ -19,6 +19,5 @@ public class Main {
         // Full constructors
         new OtomotoScraper("osobowe/opel/insignia/", true, "result/insignia.xls");
 
-
     }
 }
