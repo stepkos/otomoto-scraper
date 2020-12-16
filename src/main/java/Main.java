@@ -8,7 +8,10 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        OtomotoScraper scraper = new OtomotoScraper("/osobowe/bmw/m4/", true);
+        OtomotoScraper scraper = new OtomotoScraper();
+        scraper.setRestOfUrl("/osobowe/mercedes-benz/amg-gt/");
+        scraper.process();
+        scraper.save();
 
         for (SpecOffer offer : scraper.offers) {
             System.out.println(offer);

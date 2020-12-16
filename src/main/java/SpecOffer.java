@@ -121,6 +121,4 @@ public class SpecOffer {
                 "\n}\n";
     }
 
-
-
 }
