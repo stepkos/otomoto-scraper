@@ -70,7 +70,6 @@ public class SpecOffer {
 
     public String[] getInArray() {
         return new String[] {
-                LINK,
                 TITLE,
                 SUBTITLE,
                 YEAR,
@@ -79,13 +78,13 @@ public class SpecOffer {
                 PRICE,
                 FUEL_TYPE,
                 PRICE_CURRENCY,
-                LOCATION
+                LOCATION,
+                LINK
         };
     }
 
     public HashMap<String, String> getInHashMap() {
         HashMap<String, String> map = new HashMap<>();
-        map.put("link", LINK);
         map.put("title", TITLE);
         map.put("subtitle", SUBTITLE);
         map.put("year", YEAR);
@@ -95,6 +94,7 @@ public class SpecOffer {
         map.put("fuel_type", FUEL_TYPE);
         map.put("price_currency", PRICE_CURRENCY);
         map.put("location", LOCATION);
+        map.put("link", LINK);
         return map;
     }
 
@@ -108,8 +108,7 @@ public class SpecOffer {
     @Override
     public String toString() {
         return "SpecOffer {" +
-                "\n\tLINK='" + LINK + '\'' +
-                ", \n\tTITLE='" + TITLE + '\'' +
+                "  \n\tTITLE='" + TITLE + '\'' +
                 ", \n\tSUBTITLE='" + SUBTITLE + '\'' +
                 ", \n\tYEAR='" + YEAR + '\'' +
                 ", \n\tMILEAGE='" + MILEAGE + '\'' +
@@ -118,6 +117,7 @@ public class SpecOffer {
                 ", \n\tPRICE='" + PRICE + '\'' +
                 ", \n\tPRICE_CURRENCY='" + PRICE_CURRENCY + '\'' +
                 ", \n\tLOCATION='" + LOCATION + '\'' +
+                ", \n\tLINK='" + LINK + '\'' +
                 "\n}\n";
     }
 

@@ -46,36 +46,42 @@ public class OtomotoScraper {
         headerCellStyle.setFont(headerFont);
 
         Row headerRow = sh.createRow(0);
+        String[] headerValues = {
+                "Title",
+                "Subtitle",
+                "Year",
+                "Mileage",
+                "Engine Capacity",
+                "Price",
+                "Fuel Type",
+                "Price Currency",
+                "Location",
+                "Link"
+        };
 
-        for(int i = 0; i < 10; i++) {
+        for (int i = 0; i < headerValues.length; i++) {
             Cell cell = headerRow.createCell(i);
-            cell.setCellValue(i);
+            cell.setCellValue(headerValues[i]);
             cell.setCellStyle(headerCellStyle);
         }
 
         int rowNum = 1;
-        for(SpecOffer offer: offers) {
+        for (SpecOffer offer: offers) {
             Row row = sh.createRow(rowNum++);
-
-            row.createCell(0).setCellValue(offer.TITLE);
-
-            row.createCell(1).setCellValue(offer.MILEAGE);
-
-//            Cell dateOfBirthCell = row.createCell(2);
-//            dateOfBirthCell.setCellValue(employee.getDateOfBirth());
-//            dateOfBirthCell.setCellStyle(dateCellStyle);
-
-            row.createCell(2).setCellValue(offer.LOCATION);
+            int cellNum = 0;
+            for (String attribute: offer.getInArray()) {
+                row.createCell(cellNum++).setCellValue(attribute);
+            }
         }
 
         // Resize all columns to fit the content size
-        for(int i = 0; i < 10; i++) {
+        for (int i = 0; i < offers.size(); i++) {
             sh.autoSizeColumn(i);
         }
 
         // Write the output to a file
         try {
-            FileOutputStream fileOut = new FileOutputStream("test.xls");
+            FileOutputStream fileOut = new FileOutputStream("listOfCars.xls");
             wb.write(fileOut);
             fileOut.close();
             wb.close();
