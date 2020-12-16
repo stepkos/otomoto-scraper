@@ -3,11 +3,10 @@ import org.jsoup.select.Elements;
 
 import java.util.HashMap;
 
-
 /**
-* It is a class to collect data about specific car offer from otomoto.pl page.
-* Attributes are final and used to read only.
-*/
+ * It is a class to collect data about specific car offer from otomoto.pl page.
+ * Attributes are final and used to read only.
+ */
 public class SpecOffer {
 
     // Attributes
