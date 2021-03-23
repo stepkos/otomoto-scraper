@@ -11,5 +11,17 @@ CREATE TABLE cars (
     fuel_type varchar(100),
     price_currency varchar(100),
     location varchar(100),
-    link varchar(300)
+    link varchar(300),
+    time DATETIME DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    username varchar(30) NOT NULL UNIQUE,
+    password varchar(30) NOT NULL
+)
+
+INSERT INTO users VALUES
+(NULL, "Janek", "janek123"),
+(NULL, "Kamil", "kamil321"),
+(NULL, "Jakub", "jakub100");
