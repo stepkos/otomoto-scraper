@@ -15,10 +15,10 @@ import java.io.IOException;
  * Class handle download and sava data to .xls file.
  */
 public class OtomotoScraper {
-    private static final String baseUrl = "https://www.otomoto.pl/";
+    protected static final String baseUrl = "https://www.otomoto.pl/";
 
-    private String url; // Whole URL
-    private Document doc; // Whole subpage
+    protected String url; // Whole URL
+    protected Document doc; // Whole subpage
 
     public ArrayList<SpecOffer> offers = new ArrayList<>();
 
@@ -115,7 +115,7 @@ public class OtomotoScraper {
         }
     }
 
-    private boolean connect() {
+    protected boolean connect() {
         try {
             doc = Jsoup.connect(url).get();
         }
