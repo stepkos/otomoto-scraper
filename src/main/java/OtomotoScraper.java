@@ -134,5 +134,4 @@ public class OtomotoScraper {
         return url;
     }
 
-
 }
