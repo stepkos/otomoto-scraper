@@ -11,5 +11,5 @@ CREATE TABLE cars (
     fuel_type varchar(100),
     price_currency varchar(100),
     location varchar(100),
-    link varchar(100)
+    link varchar(300)
 );
