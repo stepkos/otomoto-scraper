@@ -1,31 +1,57 @@
 import java.sql.*;
+import java.util.Scanner;
 
 public class Menu {
-    private static boolean logged = false;
+    private static String nick = "";
 
     public static void main(String[] args) throws SQLException {
 
-        while (!logged) {
-            displayMenu("Nie zalogowany");
-
+        // LOGOWAONIE -> WYBÓR -> LINK -> WYJSCIE
+        if (loginMenu()) {
+            switch (displayMenu()) {
+                case 1:
+                    System.out.println("Wybrano 1");
+                    break;
+                case 2:
+                    System.out.println("Wybrano 2");
+                    break;
+                default:
+                    System.out.println("Taka opcja nie instnieje");
+            }
+        }
+        else {
+            System.out.println("Niepoprawne dane logowania - Odmowa dostepu");
         }
 
     }
 
-    public static void displayMenu(String nick) {
+    public static boolean loginMenu() throws SQLException {
+        Scanner scan = new Scanner(System.in);
+
+        System.out.print("Login: ");
+        String nick = scan.nextLine();
+
+        System.out.print("Haslo: ");
+        String password = scan.nextLine();
+
+        if (login(nick, password)) {
+            Menu.nick = nick;
+            return true;
+        }
+        return false;
+    }
+
+    public static int displayMenu() {
         System.out.println("-----------------------------------------");
-        System.out.println("    Zalogowano jako: " + nick);
+        System.out.println("    Zalogowano jako: " + Menu.nick);
         System.out.println("-----------------------------------------");
         System.out.println("Wybierz opcję");
 
-        if (logged) {
-            System.out.println("1. Uruchom Scraper");
-            System.out.println("2. Wyloguj");
 
-        }
-        else
-            System.out.println("1. Zaloguj");
+        System.out.println("1. Zapisz do xls");
+        System.out.println("2. Zapisz do SQL");
 
+        return new Scanner(System.in).nextInt();
     }
 
     public static boolean login(String username, String password) throws SQLException {

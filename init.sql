@@ -1,5 +1,7 @@
 CREATE DATABASE otomoto;
 
+USE otomoto;
+
 CREATE TABLE cars (
     id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     title varchar(100),
@@ -19,7 +21,7 @@ CREATE TABLE users (
     id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     username varchar(30) NOT NULL UNIQUE,
     password varchar(30) NOT NULL
-)
+);
 
 INSERT INTO users VALUES
 (NULL, "Janek", "janek123"),
