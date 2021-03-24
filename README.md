@@ -12,7 +12,7 @@ javaDataScraping - Scraping data about cars from otomoto.pl
   src/main/java/Menu.java
 ```
 
-## What new
+## What new?
 - Full console menu
 - Login system
 - Save to database
