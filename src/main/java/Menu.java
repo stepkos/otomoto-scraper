@@ -13,55 +13,60 @@ public class Menu {
         Instant end = Instant.now();
 
         if (loginMenu()) {
-            switch (displayMenu()) {
-                case 1:
-                    System.out.println("Wklej reszte linku bez 'otomoto.pl/': ");
-                    url = new Scanner(System.in).nextLine();
-                    start = Instant.now();
-                    new OtomotoScraper(url, true, "result/result.xls");
-                    end = Instant.now();
-                    break;
+            while (true) {
+                switch (displayMenu()) {
+                    case 1:
+                        System.out.println("Wklej reszte linku bez 'otomoto.pl/': ");
+                        url = new Scanner(System.in).nextLine();
+                        start = Instant.now();
+                        new OtomotoScraper(url, true, "result/result.xls");
+                        end = Instant.now();
+                        break;
 
-                case 2:
-                    System.out.println("Wklej reszte linku bez 'otomoto.pl/': ");
-                    url = new Scanner(System.in).nextLine();
-                    start = Instant.now();
-                    new OtomotoScraperToDB(url, true, true);
-                    end = Instant.now();
-                    break;
+                    case 2:
+                        System.out.println("Wklej reszte linku bez 'otomoto.pl/': ");
+                        url = new Scanner(System.in).nextLine();
+                        start = Instant.now();
+                        new OtomotoScraperToDB(url, true, true);
+                        end = Instant.now();
+                        break;
 
-                case 3:
-                    System.out.println("Wklej reszte linku bez 'otomoto.pl/': ");
-                    url = new Scanner(System.in).nextLine();
-                    start = Instant.now();
-                    OtomotoScraper scraper = new OtomotoScraperToDB(url, true);
-                    end = Instant.now();
-                    for (SpecOffer offer : scraper.offers) {
-                        System.out.println(offer);
-                    }
-                    break;
-
-                case 4:
-                    start = Instant.now();
-                    ResultSet resultSet = getCarsFromDB();
-                    end = Instant.now();
-                    while (resultSet.next()) {
-                        for (int i=1; i<=12; i++) {
-                            System.out.println(resultSet.getString(i));
+                    case 3:
+                        System.out.println("Wklej reszte linku bez 'otomoto.pl/': ");
+                        url = new Scanner(System.in).nextLine();
+                        start = Instant.now();
+                        OtomotoScraper scraper = new OtomotoScraperToDB(url, true);
+                        end = Instant.now();
+                        for (SpecOffer offer : scraper.offers) {
+                            System.out.println(offer);
                         }
-                        System.out.println("==================================================================");
-                    }
-                    break;
+                        break;
 
-                default:
-                    System.out.println("Taka opcja nie instnieje");
+                    case 4:
+                        start = Instant.now();
+                        ResultSet resultSet = getCarsFromDB();
+                        end = Instant.now();
+                        while (resultSet.next()) {
+                            for (int i=1; i<=12; i++) {
+                                System.out.println(resultSet.getString(i));
+                            }
+                            System.out.println("==================================================================");
+                        }
+                        break;
+
+                    case 5:
+                        return;
+
+                    default:
+                        System.out.println("Taka opcja nie instnieje");
+                }
+                System.out.println("Czas wykonania operacji: " + Duration.between(start, end).toMillis() + " millisekund/y");
             }
         }
         else {
             System.out.println("Niepoprawne dane logowania - Odmowa dostepu");
         }
 
-        System.out.println("Czas wykonania operacji: " + Duration.between(start, end).toMillis() + " millisekund/y");
 
     }
 
@@ -82,8 +87,9 @@ public class Menu {
     }
 
     public static int displayMenu() {
+        System.out.println("");
         System.out.println("-----------------------------------------");
-        System.out.println("    Zalogowano jako: " + Menu.nick);
+        System.out.println("      Zalogowano jako: " + Menu.nick);
         System.out.println("-----------------------------------------");
         System.out.println("Wybierz opcję");
 
@@ -92,6 +98,7 @@ public class Menu {
         System.out.println("2. Zapisz do bazy danych");
         System.out.println("3. Wyswietl w konsoli");
         System.out.println("4. Wyswietl zawartosc bazy danych");
+        System.out.println("5. Wyjscie");
 
         return new Scanner(System.in).nextInt();
     }
