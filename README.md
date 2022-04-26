@@ -1,4 +1,4 @@
-# otomotoScrapper - Scraping data about cars from otomoto.pl
+# otomotoScraper - Scraping data about cars from otomoto.pl
 
 ## How to run it?
 - Execute [init.sql](https://github.com/stepkos/otomotoScrapper/blob/main/init.sql) file to initial database 
