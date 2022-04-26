@@ -1,19 +1,12 @@
-# otomotoScrapperToDB - Modified and expanded javaDataScraping
-javaDataScraping - Scraping data about cars from otomoto.pl
+# otomotoScrapper - Scraping data about cars from otomoto.pl
 
-## How to run?
-- Execute below file
-```
-  init.sql
-```
-
-- Build below class
-```
-  src/main/java/Menu.java
-```
-
-## What new?
+## How to run it?
+- Execute [init.sql](https://github.com/stepkos/otomotoScrapper/blob/main/init.sql) file to initial database 
+- Run [src/main/java/Menu.java](https://github.com/stepkos/otomotoScrapper/blob/main/src/main/java/Menu.java) class
+  
+## Functionalities
 - Full console menu
 - Login system
-- Save to database
-- Display time
+- Ability to save to the database
+- Ability to save to .xls excel format
+- Display execute time
